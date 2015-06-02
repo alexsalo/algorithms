@@ -1,7 +1,7 @@
 __author__ = 'alex'
 
 def qsort(arr):
-    print arr
+    #print arr
     if len(arr) < 2:
         return arr
     pivots = [x for x in arr if x == arr[0]]

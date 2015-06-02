@@ -15,6 +15,7 @@ def merge(l, r):
     return result
 
 def msort(a):
+    #print a
     if len(a) == 1:
         return a
     mid = len(a) / 2
@@ -22,5 +23,4 @@ def msort(a):
 
 
 array = [101, 50, 2, 43, 6, 100, 8, 20, 3, 15]
-print array
 print msort(array)
