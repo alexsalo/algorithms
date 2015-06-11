@@ -4,12 +4,14 @@ import time
 
 import matplotlib.pyplot as plt
 
-import quicksort
+import quicksort, mergesort, repminsort, insertionsort
 
 
-N = [100, 1000, 10000, 10000, 100000, 1000000]
+N = [100, 1000, 10000]
 q = []
 m = []
+r = []
+ins = []
 
 for n in N:
     data = []
@@ -22,11 +24,25 @@ for n in N:
     q.append(time.time() - s)
 
     s = time.time()
-    quicksort.qsort(data)
+    mergesort.msort(data)
     m.append(time.time() - s)
+
+    s = time.time()
+    repminsort.repminsort(data)
+    r.append(time.time() - s)
+
+    s = time.time()
+    insertionsort.insertionsort(data)
+    ins.append(time.time() - s)
 
 print q
 print m
 
-plt.plot(q, m, linewidth=2.0)
+plt.plot(N, r, 'r-', linewidth=2.0, label = 'Rep Min Sort')
+plt.plot(N,ins, 'c-', linewidth=2.0, label = 'Insertion Sort')
+plt.plot(N,q, 'g-', linewidth=2.0, label = 'Quick Sort')
+plt.plot(N,m, 'b-', linewidth=2.0, label = 'Merge Sort')
+plt.legend(loc=2)
+plt.yscale('log')
+plt.xscale('log')
 plt.show()
